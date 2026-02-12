@@ -1,0 +1,81 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<nav class="navbar collection-navbar">
+    <div class="nav-left">
+        <a href="{% url 'home' %}" style="text-decoration:none; color:white;">
+            Arihant Arts
+        </a>
+    </div>
+
+    <div class="nav-right">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'collection' %}">Collection</a>
+        <a href="/accounts/login/">AdminLogin</a>
+    </div>
+</nav>
+
+
+<div class="collection-page">
+    <div class="bg-mesh"></div> 
+
+    <div class="header-container">
+        <h1 class="collection-title">Arihant<span>Arts</span></h1>
+        <p class="subtitle">The Curated Collection</p>
+        <div class="title-underline"></div>
+    </div>
+
+    <div class="art-grid">
+        {% for art in artworks %}
+        <div class="art-card">
+
+            <div class="image-wrapper">
+                <img src="{{ art.image.url }}" class="art-image" alt="{{ art.title }}">
+            </div>
+
+            <div class="card-content">
+                <h3 class="art-title">{{ art.title }}</h3>
+                <p class="art-price">₹ {{ art.price }}</p>
+                <p class="art-desc">{{ art.description }}</p>
+
+                <!-- 🔴 BUTTON: Show Seller Contact -->
+                <button class="buy-btn" onclick="toggleContact({{ art.id }})">
+                    View Seller Contact
+                </button>
+
+                <!-- Hidden Contact Info -->
+                <div id="contact-{{ art.id }}" class="contact-box" style="display:none;">
+                    <p><strong>Seller:</strong> Arihant Arts</p>
+                    <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+                </div>
+
+                <hr style="margin:25px 0; opacity:0.2;">
+
+                <!-- 🟢 CUSTOMER ENQUIRY FORM -->
+                <form method="POST" action="{% url 'create_enquiry' art.id %}" class="enquiry-form">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+                    <button type="submit" class="buy-btn">Request Callback</button>
+                </form>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- 🔵 JS to toggle seller contact -->
+<script>
+function toggleContact(id){
+    const box = document.getElementById("contact-" + id);
+    if(box.style.display === "none"){
+        box.style.display = "block";
+    } else {
+        box.style.display = "none";
+    }
+}
+</script>
+
+

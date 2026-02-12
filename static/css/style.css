@@ -1,0 +1,347 @@
+/* Reset default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full height page */
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff; /* Clean white base for the transition */
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 25px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: 300;
+    z-index: 10;
+}
+
+.nav-right a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.nav-right a:hover {
+    opacity: 0.7;
+}
+
+/* Hero section - The core "Fractal" look */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    
+    /* Layered background: Deep Red Base -> Pink Midtones -> White Highlights */
+    background: 
+        linear-gradient(130deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.9) 85%),
+        linear-gradient(210deg, #d31027 0%, #ea384d 40%, #ff8fa3 70%, #ffffff 100%);
+}
+
+/* White Sharp Energy Streak (Top Right) */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: -10%;
+    background: linear-gradient(110deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    transform: rotate(-15deg);
+    filter: blur(2px);
+    animation: sweep 8s ease-in-out infinite alternate;
+}
+
+/* Pink Translucent Shard (Bottom Right) */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    bottom: -20%;
+    right: -20%;
+    background: rgba(255, 255, 255, 0.15);
+    /* This creates the sharp angular cut seen in your image */
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+/* Content Container */
+.hero > * {
+    position: relative;
+    z-index: 5;
+    /* Adds a slight drop shadow to text to keep it readable against the white wisps */
+    text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Subtle "shimmer" animation for the white streaks */
+@keyframes sweep {
+    0% { transform: rotate(-15deg) translateX(-5%); }
+    100% { transform: rotate(-12deg) translateX(5%); }
+}
+
+.brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 82px; /* Slightly larger for impact */
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.explore-btn {
+    padding: 14px 40px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: white;
+    color: #d31027;
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+/* ===============================
+   ARIHANT ARTS - LUXURY COLLECTION UI
+   =============================== */
+
+.collection-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 140px 8% 80px 8%;
+    overflow: hidden;
+    /* Soft base mixture of pink and white */
+    background-color: #fff5f6; 
+}
+
+/* The Abstract Color Mixture Background */
+.bg-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: 
+        radial-gradient(at 0% 0%, rgba(211, 16, 39, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(255, 182, 193, 0.2) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(211, 16, 39, 0.05) 0px, transparent 50%);
+    pointer-events: none;
+}
+
+.header-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.collection-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.collection-title span {
+    font-style: italic;
+    font-weight: 600;
+    color: #d31027; /* Signature Red accent */
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 12px;
+    color: #888;
+}
+
+.title-underline {
+    width: 40px;
+    height: 1px;
+    background: #d31027;
+    margin: 25px auto;
+}
+
+/* Grid Layout */
+.art-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 100px 60px;
+}
+
+/* Card - Glassmorphism touch */
+.art-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.art-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 30px 60px rgba(211, 16, 39, 0.1);
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.art-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s ease;
+}
+
+/* Typography & Description */
+.card-content {
+    padding: 30px 10px 10px 10px;
+}
+
+.art-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.art-price {
+    font-family: 'Montserrat', sans-serif;
+    color: #d31027;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.art-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+.buy-btn {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 1px solid #d31027; /* Red underline for luxury pop */
+    padding-bottom: 5px;
+    transition: 0.3s ease;
+}
+
+.buy-btn:hover {
+    color: #d31027;
+    padding-left: 15px;
+}
+
+
+/* Seller contact box */
+.contact-box{
+    margin-top:15px;
+    padding:15px;
+    background:#fff;
+    border-left:4px solid #d31027;
+    font-size:14px;
+}
+
+/* Enquiry form */
+.enquiry-form{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.enquiry-form input{
+    padding:10px;
+    border:1px solid #ddd;
+    font-size:14px;
+}
+
+.enquiry-form input:focus{
+    outline:none;
+    border-color:#d31027;
+
+}
+
+
+/* ===== Collection Page Navbar Fix ===== */
+
+.collection-navbar .nav-right a {
+    color: #000;              /* Black text */
+    font-size: 16px;          /* Slightly bigger */
+    font-weight: 400;
+}
+
+.collection-navbar .nav-left {
+    color: #000;              /* Arihant Arts logo also black */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.collection-navbar .nav-right a:hover {
+    opacity: 0.6;
+}
+
+/* ===== Home Page Navbar Button Fix ===== */
+
+.home-navbar .nav-right a {
+    color: #000;          /* Black buttons */
+    font-size: 16px;      /* Slightly bigger */
+    font-weight: 400;
+}
+
+.home-navbar .nav-right a:hover {
+    opacity: 0.6;
+}
+

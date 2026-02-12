@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div style="height:100vh;display:flex;justify-content:center;align-items:center;background:#fff5f6;">
+    <form method="POST" style="background:white;padding:40px;border-radius:8px;width:300px;">
+        <h2 style="margin-bottom:20px;">Seller Login</h2>
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="explore-btn" style="color:#000;border-color:#000;">
+            Login
+        </button>
+    </form>
+</div>

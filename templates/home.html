@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arihant Arts</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar home-navbar">
+        <div class="nav-left">Arihant Arts</div>
+        <div class="nav-right">
+            <a href="/">Home</a>
+            <a href="{% url 'collection' %}">Collection</a>
+            <a href="/accounts/login/">AdminLogin</a>
+        </div>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="content">
+            <h1 class="brand">Arihant<span>Arts</span></h1>
+            <p class="quote">Where tradition finds its eternal canvas.</p>
+
+            <!-- THIS is the important fix -->
+            <a href="{% url 'collection' %}" class="explore-btn">
+                Explore Collection
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
