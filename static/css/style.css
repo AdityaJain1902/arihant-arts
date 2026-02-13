@@ -345,3 +345,51 @@ html, body {
     opacity: 0.6;
 }
 
+
+.enquiry-form button {
+    width: 100%;
+    padding: 14px 0;
+    margin-top: 10px;
+    background-color: #d31027;
+    color: white;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.enquiry-form button:hover {
+    background-color: #a50d1f;
+}
+
+
+/* Make View Seller Contact button longer */
+.seller-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+
+/* Seller Contact Box Styling */
+.contact-box {
+    background: #f8f8f8;
+    padding: 18px 20px;
+    margin-top: 15px;
+    border-left: 4px solid #d31027;
+    font-size: 17px;          /* Bigger text */
+    line-height: 1.6;
+}
+
+.contact-box strong {
+    font-size: 18px;          /* Make label slightly bigger */
+    color: #000;
+}
+
+.contact-box p {
+    margin: 6px 0;
+}
