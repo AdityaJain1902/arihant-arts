@@ -30,7 +30,11 @@
         <div class="art-card">
 
             <div class="image-wrapper">
-                <img src="{{ art.image.url }}" class="art-image" alt="{{ art.title }}">
+                <img src="{{ art.image.url }}" 
+             class="art-image" 
+             alt="{{ art.title }}"
+             onclick="openModal('{{ art.image.url }}')">
+
             </div>
 
             <div class="card-content">
@@ -77,5 +81,23 @@ function toggleContact(id){
     }
 }
 </script>
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+function openModal(src){
+    document.getElementById("imageModal").style.display = "flex";
+    document.getElementById("modalImage").src = src;
+}
+
+function closeModal(){
+    document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
 
 
